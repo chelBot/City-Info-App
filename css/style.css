@@ -1,5 +1,5 @@
 * {box-sizing:border-box;}
-body {background-color: #3B3738;
+body {background-color: #333333;
     font-family: Courier;
 
 }
@@ -22,6 +22,8 @@ body {background-color: #3B3738;
 }
 label {
     color: #CCC;
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: black;
 }
 #content-container {
     display: flex;
