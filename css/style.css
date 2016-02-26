@@ -1,5 +1,7 @@
 * {box-sizing:border-box;}
-body {background-color: #333333;
+
+body {
+    background-color: #333333;
     font-family: Courier;
 
 }
@@ -25,36 +27,85 @@ label {
     -webkit-text-stroke-width: .3px;
     -webkit-text-stroke-color: black;
 }
-#content-container {
-    display: flex;
+/***************************************************************************/
+@media screen and (min-width: 1018px){
+    #content{
+        /*display: -webkit-flex;*/
+        display: flex;
+        /*flex-wrap: wrap;*/
+       /*-webkit-flex-direction: column;*/
+        width: 100%;
+        /*justify-content: flex-end;*/
+        /*flex-direction: column;*/
+
+    }
+    #wiki{
+        height: 350px;
+        padding:10px;
+        
+        background-color: rgba(255,255,255,0.7);
+        border-left: dashed 1px black; 
+        overflow: auto; 
+        order: 2;
+        width: 20%;
+
+    }
+    #nyt{
+        height: 350px;
+        padding: 10px;
+     
+        background-color: rgba(255,255,255,0.7);
+        overflow: auto;
+        order: 1;
+        width: 80%;
+    }
 }
-.wikipedia-container {
-    float:right;
-   
-    height: 350px;
-    padding:10px;
-    margin-right: 10px;
-    background-color: rgba(255,255,255,0.7);
-    border-left: dashed 1px black; 
-    overflow: auto; 
+
+@media screen and (max-width: 1018px){
+    #content{
+        display: flex;
+        /*width: 100%;*/
+        flex-direction: column;
+        align-content: center;
+    }
+    #wiki{
+        padding:10px;
+        background-color: rgba(255,255,255,0.5);
+        overflow: auto;
+        order: 2;
+        width: 30%;
+        margin-top: 20px;
+
+    }
+    #nyt{
+        padding: 10px;
+        background-color: rgba(255,255,255,0.5);
+        overflow: auto;
+        order: 1;
+        width: 100%;
+    }
 }
+@media only screen and (max-width: 521px){
+
+    #nytimes-header  {
+        font-size: 5px;
+   }
+   #wikipedia-header{
+        font-size: 10px;
+   }
+}
+/***************************************************************************/
 #wikipedia-links {
     margin-left: 10px;
     padding-left: 10px;
+    /*display: flex;
+    flex-wrap: wrap;*/
 }
 
-.nytimes-container {
-    height: 350px;
+/*#nytimes-header {
+   font-size: 5px;
 
-    padding: 10px;
-    margin-right:300px;
-    background-color: rgba(255,255,255,0.7);
-    overflow: auto;
-}
-#nytimes-header {
-   
-
-}
+}*/
 #nytimes-articles {
     margin-left: 10px;
     padding-left: 10px;
@@ -74,3 +125,4 @@ label {
 .article:first-child {
     border-top:none;
 }
+

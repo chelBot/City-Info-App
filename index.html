@@ -11,10 +11,6 @@
         <label for="street">Street: </label><input type="text" id="street" value="">
         <label for="city">City: </label><input type="text" id="city" value="">
         <button id="submit-btn">Submit</button>
-        <!-- <input type="submit" name="action" value="street-btn"/> -->
-        <!-- <input type="submit" name="action" value="city-btn"/ -->
-        <!-- <button name="action"  id="street-btn">Strict Street Search</button>
-        <button name="action"  id="city-btn">Broad City Search</button> -->
     </form>
 
 
@@ -22,14 +18,14 @@
 
     <h2 id="greeting" class="greeting">What area do you want to research?</h2>
 
-    <div id ="contend-container">
-        <div class="wikipedia-container">
-            <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
+    <div class ="contend-container" id="content">
+        <div class="wikipedia-container" id="wiki">
+            <h3 id="wikipedia-header">Wikipedia Links</h3>
             <ul id="wikipedia-links"></ul> 
         </div>
 
 
-        <div class="nytimes-container">
+        <div class="nytimes-container" id = "nyt">
             <h3 id="nytimes-header">New York Times Articles</h3>
             <ul id="nytimes-articles" class="article-list">What's going on in your location of interest? Enter an address and hit submit to find out!</ul>
         </div>
