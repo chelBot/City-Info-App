@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
     <title>Your Moving Companion</title>
     <link rel="stylesheet" href="css/style.css">
@@ -8,9 +9,15 @@
 <body>
 
     <form id="form-container" class="form-container">
-        <label for="street">Street: </label><input type="text" id="street" value="">
-        <label for="city">City: </label><input type="text" id="city" value="">
+        <div id='label1'>
+            <label for="street">Street: </label><input type="text" id="street" value="">
+        </div>
+        <div id='label2'>
+            <label for="city">City: </label><input type="text" id="city" value="">
+        </div>
+        <div>
         <button id="submit-btn">Submit</button>
+        </div>
     </form>
 
 
@@ -19,13 +26,13 @@
     <h2 id="greeting" class="greeting">What area do you want to research?</h2>
 
     <div class ="contend-container" id="content">
-        <div class="wikipedia-container" id="wiki">
+        <div class="wikipedia-container gray" id="wiki">
             <h3 id="wikipedia-header">Wikipedia Links</h3>
             <ul id="wikipedia-links"></ul> 
         </div>
 
 
-        <div class="nytimes-container" id = "nyt">
+        <div class="nytimes-container gray" id = "nyt">
             <h3 id="nytimes-header">New York Times Articles</h3>
             <ul id="nytimes-articles" class="article-list">What's going on in your location of interest? Enter an address and hit submit to find out!</ul>
         </div>

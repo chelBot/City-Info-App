@@ -3,7 +3,16 @@
 body {
     background-color: #333333;
     font-family: Courier;
-
+    background-image: url(img/escheresque_ste.png);
+    background-repeat: repeat;
+}
+h3{
+    color: #CCC;
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: black;
+}
+.gray {
+  background-color: rgba(90,90,90,0.8);
 }
 
 .bgimg {
@@ -19,12 +28,12 @@ body {
     color: #CCC;
     /*text-shadow: 1px 1px 3px rgba(255,255,255, .5);*/
     text-align: center;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: .3px;
     -webkit-text-stroke-color: black;
 }
 label {
     color: #CCC;
-    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-width: .1px;
     -webkit-text-stroke-color: black;
 }
 /***************************************************************************/
@@ -43,7 +52,7 @@ label {
         height: 350px;
         padding:10px;
         
-        background-color: rgba(255,255,255,0.7);
+      /*  background-color: rgba(255,255,255,0.7);*/
         border-left: dashed 1px black; 
         overflow: auto; 
         order: 2;
@@ -54,13 +63,21 @@ label {
         height: 350px;
         padding: 10px;
      
-        background-color: rgba(255,255,255,0.7);
+        /*background-color: rgba(255,255,255,0.7);*/
         overflow: auto;
         order: 1;
         width: 80%;
     }
 }
-
+#form-container{
+    display:flex;
+    justify-content: flex-start;
+}
+#label1, #label2 {
+    padding-right: 10px;
+    /*padding-top: 10px;
+    padding-bottom: 10px;*/
+}
 @media screen and (max-width: 1018px){
     #content{
         display: flex;
@@ -70,28 +87,39 @@ label {
     }
     #wiki{
         padding:10px;
-        background-color: rgba(255,255,255,0.5);
+        /*background-color: rgba(255,255,255,0.5);*/
         overflow: auto;
         order: 2;
-        width: 30%;
+        width: 45%;
         margin-top: 20px;
 
     }
     #nyt{
         padding: 10px;
-        background-color: rgba(255,255,255,0.5);
+        /*background-color: rgba(255,255,255,0.5);*/
         overflow: auto;
         order: 1;
         width: 100%;
     }
 }
-@media only screen and (max-width: 521px){
+@media only screen and (max-width: 600px){
+    #form-container, #label1, #label2{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding-bottom: 5px;
+    }
+}
+@media only screen and (max-width: 421px){
 
     #nytimes-header  {
-        font-size: 5px;
+        font-size: 15px;
    }
    #wikipedia-header{
-        font-size: 10px;
+        font-size: 15px;
+   }
+   #form-container {
+    flex-direction: column;
    }
 }
 /***************************************************************************/
@@ -115,6 +143,7 @@ label {
 .article-list {
     margin: 0;
     padding: 0;
+    color: #ccc;
 }
 
 .article {
