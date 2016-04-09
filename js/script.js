@@ -4,7 +4,6 @@ $(document).ready(function(){
     var $nytHeaderElem = $('#nytimes-header');
     var $nytElem = $('#nytimes-articles');
     var $greeting = $('#greeting');
-
     String.prototype.properCapitalize = function(){
       return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase(); 
     };
@@ -75,7 +74,7 @@ $(document).ready(function(){
         //A Promise: when both ajax requests return: 
         $.when(ajax1(), ajax2()).done(function(){
             if(!(wikiHasLI && nytHasLI)){
-                $nytElem.text("No articles found. Try boardening your scope and searching for articles within your city of interest instead.");
+                $nytElem.text("No articles found. Try broadening your scope and searching for articles within your city of interest instead.");
             }
         });
         return false;   
