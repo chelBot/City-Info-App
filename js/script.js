@@ -5,7 +5,7 @@ $(document).ready(function(){
     var $nytElem = $('#nytimes-articles');
     var $greeting = $('#greeting');
     String.prototype.properCapitalize = function(){
-      return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase(); 
+      return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
     };
     function loadData(){
         var nytHasLI, wikiHasLI;
@@ -19,11 +19,11 @@ $(document).ready(function(){
             street = street.properCapitalize() + ", ";
         }
         var city = $("#city").val().properCapitalize();
-        var address = street + city; 
-      
+        var address = street + city;
+
         $greeting.text("Information about: " + address);
 
-        //Check if background images exists. If so remove existing image and set new image. 
+        //Check if background images exists. If so remove existing image and set new image.
         if($(".bgimg").length === 0){
             $body.append('<img class="bgimg" src="http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '">');
         }
@@ -33,7 +33,7 @@ $(document).ready(function(){
         }
 
         //NY times AJAX request
-        var nytUrl = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + address + "&api-key=e76feb03ae17bd533a0343f3ae88e251:13:74249074";
+        var nytUrl = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + address + "&api-key=76e50180e2854206a9ae827b38cc183a";
         function ajax1(){
             return $.getJSON(nytUrl, function(data){
                 var urls = [];
@@ -41,7 +41,7 @@ $(document).ready(function(){
                     var url = data.response.docs[index]["web_url"];
                     var headline = data.response.docs[index]["headline"]["main"];
                     var snippet = data.response.docs[index]["snippet"];
-                   $nytElem.append("<li id='" + index + "'><a href='" + url + "'>"  + headline +  "</a><p>" + snippet + "</p></li>")   
+                   $nytElem.append("<li id='" + index + "'><a href='" + url + "'>"  + headline +  "</a><p>" + snippet + "</p></li>")
                 });
                 if($nytElem.find("li").length > 0){
                     nytHasLI = true;
@@ -50,13 +50,15 @@ $(document).ready(function(){
                 $nytHeaderElem.text("New York Times Articles Could Not Be Loaded");
             });
         };
+
+
         //Wikipedia Ajax request
         var wikiUrl = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + address + "&format=json&callback=wikiCallback";
-        function ajax2(){ 
+        function ajax2(){
             return $.ajax({
                 url: wikiUrl,
-                dataType: 'jsonp', 
-                success: function(response){ 
+                dataType: 'jsonp',
+                success: function(response){
                     var articles = response[1];
                     for(var i = 0; i < articles.length; i++){
                         var urlStr = "https://en.wikipedia.org/wiki/" + articles[i];
@@ -66,19 +68,18 @@ $(document).ready(function(){
                     if($wikiElem.find("li").length > 0){
                         wikiHasLI = true;
                     }
-                }    
+                }
                 }).error(function(){
                     $wikiElem.text("Wikipedia Articles Could Not Be Loaded");
                 });
         };
-        //A Promise: when both ajax requests return: 
+        //A Promise: when both ajax requests return:
         $.when(ajax1(), ajax2()).done(function(){
             if(!(wikiHasLI && nytHasLI)){
                 $nytElem.text("No articles found. Try broadening your scope and searching for articles within your city of interest instead.");
             }
         });
-        return false;   
+        return false;
     };
     $('#form-container').submit(loadData);
 });
-
